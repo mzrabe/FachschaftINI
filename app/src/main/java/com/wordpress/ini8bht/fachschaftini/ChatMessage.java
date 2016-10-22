@@ -2,7 +2,7 @@ package com.wordpress.ini8bht.fachschaftini;
 
 /**
  * Created by Khaled on 10/22/2016.
- */
+ *///
 
 public class ChatMessage {
     public boolean left;
