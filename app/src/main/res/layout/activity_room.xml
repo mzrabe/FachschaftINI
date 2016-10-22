@@ -15,11 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60px"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView1" /><![CDATA[
-
-    />
-
-    ]]>
+        android:id="@+id/textView1" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -36,16 +32,18 @@
         android:id="@+id/list"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_below="@id/button6"
+        android:layout_below="@+id/button6"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:cacheColorHint="@color/colorAccent"
+        android:background="@color/colorPrimary">
     </ListView>
 
     <Button
         android:text="Check in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/button6"
         android:onClick="checkIn"
         android:layout_below="@+id/editText"
