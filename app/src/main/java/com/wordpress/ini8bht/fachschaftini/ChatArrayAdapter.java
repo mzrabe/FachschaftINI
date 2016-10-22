@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.wordpress.ini8bht.fachschaftini.ChatMessage;
 import com.wordpress.ini8bht.fachschaftini.R;
+///
 
 import java.util.ArrayList;
 import java.util.List;
