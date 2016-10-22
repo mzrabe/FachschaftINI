@@ -18,12 +18,10 @@ public class RoomActivity extends AppCompatActivity {
     private Button button_CheckIn;  //button for "pushing" name into list @TODO unused!
     TextView txt_header;
     String peopleNames[] = new String[15];  // string array (probably obsolete?)
-    String mEditString;         // string type of input text
+    String mEditString = "";         // string type of input text
     EditText mEdit;             // name input text field
     ListView listView;          // list of people
-    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-            android.R.layout.simple_list_item_1, android.R.id.text1, peopleNames);
-
+    ArrayAdapter<String> adapter;
 
 
 
@@ -31,12 +29,18 @@ public class RoomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room);
+
+        adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, peopleNames);
+
+
         txt_header = (TextView)findViewById(R.id.textView1);
         button_CheckIn = (Button) findViewById(R.id.button6);
         button_CheckIn.setOnClickListener(new View.OnClickListener() {
 
                                               @Override
                                               public void onClick(View view) {
+
                                                   checkIn();
                                                   }
                                           });
@@ -82,11 +86,14 @@ public class RoomActivity extends AppCompatActivity {
         if (NumberOfPeople >= 15) {
             Toast.makeText(this, "Fehler: Zu viele Anwesende! Auschecken vergessen?", Toast.LENGTH_SHORT).show();
         } else {
+            mEdit = (EditText) findViewById(R.id.editText);
+            mEditString = mEdit.getText().toString();
             if (!mEditString.matches("")) {
                 setHeader(++NumberOfPeople);
-                mEdit = (EditText) findViewById(R.id.editText);
-                mEditString = mEdit.getText().toString();
-                adapter.add(mEditString);            } else {
+
+                adapter.add(mEditString);            }
+            else
+            {
                 Toast.makeText(this, "Bitte Usernamen eingeben!", Toast.LENGTH_SHORT).show();
             }
 
