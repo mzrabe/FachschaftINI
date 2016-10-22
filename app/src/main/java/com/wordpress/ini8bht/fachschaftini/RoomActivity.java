@@ -19,23 +19,30 @@ public class RoomActivity extends AppCompatActivity {
     TextView txt_header;
     String peopleNames[] = new String[15];  // string array (probably obsolete?)
     String mEditString;         // string type of input text
-    EditText mEdit;             // name imput text field
+    EditText mEdit;             // name input text field
     ListView listView;          // list of people
+    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+            android.R.layout.simple_list_item_1, android.R.id.text1, peopleNames);
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room);
-        txt_header = (TextView) findViewById(R.id.textView1);
+        txt_header = (TextView)findViewById(R.id.textView1);
         button_CheckIn = (Button) findViewById(R.id.button6);
+        button_CheckIn.setOnClickListener(new View.OnClickListener() {
+
+                                              @Override
+                                              public void onClick(View view) {
+                                                  checkIn();
+                                                  }
+                                          });
         listView = (ListView) findViewById(R.id.list);
-        mEdit = (EditText) findViewById(R.id.editText);
-        mEditString = mEdit.getText().toString();
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, peopleNames);
 
 
         // Assign adapter to ListView
@@ -77,8 +84,9 @@ public class RoomActivity extends AppCompatActivity {
         } else {
             if (!mEditString.matches("")) {
                 setHeader(++NumberOfPeople);
-
-            } else {
+                mEdit = (EditText) findViewById(R.id.editText);
+                mEditString = mEdit.getText().toString();
+                adapter.add(mEditString);            } else {
                 Toast.makeText(this, "Bitte Usernamen eingeben!", Toast.LENGTH_SHORT).show();
             }
 
