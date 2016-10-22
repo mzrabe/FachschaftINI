@@ -1,31 +1,3 @@
-
-Skip to content
-This repository
-
-    Pull requests
-    Issues
-    Gist
-
-    @mzrabe
-
-0
-0
-
-    0
-
-mzrabe/FachschaftINI
-Code
-Issues 0
-Pull requests 0
-Projects 0
-Wiki
-Pulse
-Graphs
-Settings
-FachschaftINI/.gitignore
-2725fce 2 minutes ago
-@mzrabe mzrabe Initial commit
-41 lines (29 sloc) 465 Bytes
 # Built application files
 *.apk
 *.ap_
@@ -61,7 +33,6 @@ proguard/
 captures/
 
 # Intellij
-*.iml
 .idea/workspace.xml
 
 # Keystore files
